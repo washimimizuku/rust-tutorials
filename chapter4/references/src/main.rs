@@ -1,16 +1,19 @@
 fn main() {
+    // Reference
     let s1 = String::from("Hello");
 
     let len = calculate_length(&s1);
 
     println!("The length of '{}' is {}.", s1, len);
 
+    // Muttable reference
     let mut s = String::from("Hello");
 
     change(&mut s);
 
     println!("{}", s);
 
+    // Multiple reference with muttable and non-muttable
     let mut s = String::from("Hello");
 
     let r1 = &s; // no problem
@@ -21,6 +24,10 @@ fn main() {
 
     let r3 = &mut s; // no problem
     println!("{}", r3);
+
+    // Dangling references avoidance
+    let s2 = no_dangle();
+    println!("{}", s2);
 }
 
 fn calculate_length(s: &String) -> usize { // s is a reference to a String
@@ -30,4 +37,10 @@ fn calculate_length(s: &String) -> usize { // s is a reference to a String
 
 fn change(some_string: &mut String) {
     some_string.push_str(", world")
+}
+
+fn no_dangle() -> String {
+    let s = String::from("hello");
+
+    s
 }
