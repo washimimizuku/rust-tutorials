@@ -1,4 +1,23 @@
 fn main() {
+    // Integer Type:
+    // ---------------------------
+    // Length  | Insigned | Signed
+    // ---------------------------
+    // 8-bit   | u8     | i8
+    // 16-bit  | u16    | i16
+    // 32-bit  | u32    | i32 (default)
+    // 64-bit  | u64    | i64
+    // 128-bit | u128   | i128
+    // arch    | usize  | isize
+    // ---------------------------
+    // Float Type:
+    // --------------
+    // Length  | Type
+    // --------------
+    // 32-bit  | f32
+    // 64-bit  | f64 (default)
+    // --------------
+
     let x = 2.0; // f64
     println!("The value of x is {}", x);
 
@@ -25,12 +44,14 @@ fn main() {
     let remainder = 43 % 5;
     println!("The value of remainder is {}", remainder);
     
+    // Boolean Type
     let t = true;
     println!("The value of t is {}", t);
 
     let f: bool = false; // with explicit type annotation
     println!("The value of f is {}", f);
 
+    // Character Type
     let c = 'z';
     let z = 'ℤ';
     let heart_eyed_cat = '😻';
@@ -38,6 +59,7 @@ fn main() {
     println!("The value of z is {}", z);
     println!("The value of heart_eyed_cat is {}", heart_eyed_cat);
 
+    // Tuple Type (fixed length list)
     let tup: (i32, f64, u8) = (500, 6.4, 1);
     let (x, y, z) = tup;
     println!("The value of x is: {}", x);
@@ -52,6 +74,10 @@ fn main() {
     println!("The value of six_point_four is {}", six_point_four);
     println!("The value of one is {}", one);
 
+    // Array Type (variable length list)
+    let months = ["January", "February", "March", "April", "May", "June", "July",
+                  "August", "September", "October", "November", "December"];
+    println!("The value of months[6] is {}", months[6]);
     let a: [i32; 5] = [1, 2, 3, 4, 5];
     println!("The value of a[0] is {}", a[0]);
     let a = [3; 5];
