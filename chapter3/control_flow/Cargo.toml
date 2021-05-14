@@ -1,5 +1,5 @@
 [package]
-name = "branches"
+name = "control_flow"
 version = "0.1.0"
 authors = ["Nuno Barreto <nbarreto@gmail.com>"]
 edition = "2018"
