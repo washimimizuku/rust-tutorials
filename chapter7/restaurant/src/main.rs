@@ -14,12 +14,12 @@ fn main() {
 
     // Nested paths
     use std::{cmp::Ordering, io};
-    // Same has:
+    // Same as:
     // use std::cmp::Ordering;
     // use std::io;
 
     use std::os::{self, raw};
-    // Same has:
+    // Same as:
     // use std::os;
     // use std::os::raw;
 
