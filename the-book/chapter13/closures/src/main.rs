@@ -65,4 +65,13 @@ fn main() {
     let simulatd_random_number = 7;
 
     generate_workout(simulated_user_specified_value, simulatd_random_number);
+
+    // Capturing the Environment with Closures
+    let x = 4;
+
+    let equal_to_x = |z| z == x;
+    
+    let y = 4;
+
+    assert!(equal_to_x(y));
 }
