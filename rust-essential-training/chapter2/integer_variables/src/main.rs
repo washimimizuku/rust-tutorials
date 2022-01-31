@@ -1,9 +1,9 @@
 fn main() {
-    // i32 by default (Signed inteer 32 bits)
-    let x = -10;
-    println!("x is {}", x);
+    // i32 by default (Signed integer 32 bits)
+    let a = -10;
+    println!("a is {}", a);
     
     // Unsigned integer 8 bits
-    let a: u8 = 10;
-    println!("x is {}", a);
+    let b: u8 = 10;
+    println!("b is {}", b);
 }
