@@ -28,4 +28,11 @@ fn main() {
 
     let z = x / y;
     println!("z is {}", z);
+
+    // Mix numeric types
+    let x2 = 10;
+    let y2 = 3.0;
+
+    let z2 = x2 as f64 / (y2 + 1.0);
+    println!("z2 is {}", z2);
 }
