@@ -7,4 +7,8 @@ fn main() {
     println!("a AND B is {}", a & b);
     println!("a OR B is {}", a | b);
     println!("a XOR B is {}", a ^ b);
+
+    let c = (a ^ b) | (a & b);
+    
+    println!("c is {}", c);
 }
