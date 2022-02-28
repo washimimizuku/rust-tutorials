@@ -1,16 +1,32 @@
 fn main() {
-    // Integer Type:
+    // Integer Types:
     // ---------------------------
-    // Length  | Insigned | Signed
+    // Length  | Unsigned | Signed
     // ---------------------------
-    // 8-bit   | u8     | i8
-    // 16-bit  | u16    | i16
-    // 32-bit  | u32    | i32 (default)
-    // 64-bit  | u64    | i64
-    // 128-bit | u128   | i128
-    // arch    | usize  | isize
+    // 8-bit   | u8       | i8
+    // 16-bit  | u16      | i16
+    // 32-bit  | u32      | i32 (default)
+    // 64-bit  | u64      | i64
+    // 128-bit | u128     | i128
+    // arch    | usize    | isize
     // ---------------------------
-    // Float Type:
+    
+    let decimal = 98_200; // Number literals can also use _ as a visual separator
+    println!("The value of decimal is {}", decimal);
+
+    let hex = 0xff;
+    println!("The value of hex is {}", hex);
+
+    let octal = 0o77;
+    println!("The value of octal is {}", octal);
+
+    let binary = 0b1111_0000;
+    println!("The value of binary is {}", binary);
+
+    let byte: u8 = b'A';
+    println!("The value of byte is {}", byte);
+
+    // Float Types:
     // --------------
     // Length  | Type
     // --------------
@@ -78,8 +94,10 @@ fn main() {
     let months = ["January", "February", "March", "April", "May", "June", "July",
                   "August", "September", "October", "November", "December"];
     println!("The value of months[6] is {}", months[6]);
+
     let a: [i32; 5] = [1, 2, 3, 4, 5];
     println!("The value of a[0] is {}", a[0]);
-    let a = [3; 5];
+    
+    let a = [3; 5]; // [3, 3, 3, 3, 3]
     println!("The value of a[0] is {}", a[0]);
 }
