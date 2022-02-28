@@ -21,12 +21,13 @@ fn main() { // Scope starts
     // println!("{}, world!", s1); -> Gives error[E0382]: borrow of moved value: `s1`
     println!("{}, world!", s2);
 
-    // Clone
+    // Clone, or deep copy
     let s1 = String::from("hello");
     let s2 = s1.clone();
 
     println!("s1 = {}, s2 = {}", s1, s2);
     
+    // Stack-only data -> copy
     let x = 5;
     let y = x; // For literals of fixed size, acts as clone
 
