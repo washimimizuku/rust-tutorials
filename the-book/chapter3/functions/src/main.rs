@@ -1,5 +1,11 @@
 fn main() {
-    another_function(5, 6);
+    println!("Hello, world!");
+
+    another_function();
+
+    yet_another_function(5, 6);
+
+    print_labeled_measurement(5, 'h');
 
     let x = 10;
 
@@ -7,6 +13,7 @@ fn main() {
         let x = 3;
         x + 1
     };
+    
     println!("The value of x is {}", x);
     println!("The value of y is {}", y);
 
@@ -17,9 +24,17 @@ fn main() {
     println!("The value of x is {}", x);
 }
 
-fn another_function(x: i32, y: i32) {
+fn another_function() {
+    println!("A function.")
+}
+
+fn yet_another_function(x: i32, y: i32) {
     println!("The value of x is {}", x);
     println!("The value of y is {}", y);
+}
+
+fn print_labeled_measurement(value: i32, unit_label: char) {
+    println!("The measurement is: {}{}", value, unit_label)
 }
 
 fn five() -> i32 {
