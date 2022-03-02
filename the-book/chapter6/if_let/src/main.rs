@@ -1,4 +1,5 @@
 #[derive(Debug)]
+#[allow(dead_code)]
 enum UsState {
     Alabama,
     Alaska,
@@ -52,6 +53,7 @@ enum UsState {
     Wyoming,
 }
 
+#[allow(dead_code)]
 enum Coin {
     Penny,
     Nickel,
@@ -82,7 +84,7 @@ fn main() {
     }
     println!("Count: {}", count);
 
-    // With if let
+    // With if let else
     let coin = Coin::Quarter(UsState::Alabama);
     let mut count = 0;
     if let Coin::Quarter(state) = coin {
@@ -91,4 +93,18 @@ fn main() {
         count += 1;
     }
     println!("Count: {}", count);
+
+    // Without if let
+    let config_max = Some(3u8);
+    match config_max {
+        Some(max) => println!("The maximum is configured to be {}", max),
+        _ => (),
+    }
+
+    // With if let
+    let config_max = Some(3u8);
+    if let Some(max) = config_max {
+        println!("The maximum is configured to be {}", max);
+    }
+
 }
