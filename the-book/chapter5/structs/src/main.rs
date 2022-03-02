@@ -76,7 +76,9 @@ fn main() {
     println!("Origin: ({}, {}, {})", origin.0, origin.1, origin.2);
 
     // Unit-Like Structs
+    #[derive(Debug)]
     struct AlwaysEqual;
 
-    let _subject = AlwaysEqual;
+    let subject = AlwaysEqual;
+    println!("subject is {:#?}", subject);
 }
