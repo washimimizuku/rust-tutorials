@@ -1,4 +1,5 @@
 #[derive(Debug)]
+#[allow(dead_code)]
 enum UsState {
     Alabama,
     Alaska,
@@ -116,4 +117,24 @@ fn main() {
         UsState::Alabama => println!("State is Alabama."),
         _ => println!("State not Alabama!"), // _ matches any other
     }
+
+    // The variable placeholder
+    let dice_roll = 9;
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        other => move_player(other),
+    }
+}
+
+fn add_fancy_hat() {
+    println!("Added fancy hat.");
+}
+
+fn remove_fancy_hat() {
+    println!("Removed fancy hat.");
+}
+
+fn move_player(num_spaces: u8) {
+    println!("Walked {} steps.", num_spaces);
 }
