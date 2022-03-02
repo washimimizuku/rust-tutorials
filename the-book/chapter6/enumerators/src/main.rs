@@ -14,6 +14,7 @@ fn main() {
 
     // Struct that uses an enum
     #[derive(Debug)]
+    #[allow(dead_code)]
     struct IpAddrStruct {
         kind: IpAddrKind,
         address: String,
@@ -47,6 +48,7 @@ fn main() {
     #[derive(Debug)]
     enum Message {
         Quit, // No data associated
+        #[allow(dead_code)]
         Move { x: i32, y: i32 }, // Anonymous struct
         Write(String), // String
         ChangeColor(i32, i32, i32) // three i32 values
@@ -70,7 +72,7 @@ fn main() {
     let message4 = Message::ChangeColor(255, 255, 255);
     message4.call();
 
-    // Option Enum
+    // Some and Option Enums
     let some_number = Some(5);
     let some_string = Some("a string");
     println!("some_number is: {:#?}", some_number);
@@ -78,6 +80,13 @@ fn main() {
 
     let absent_number: Option<i32> = None;
     println!("absent_number is: {:#?}", absent_number);
+
+    // Convert Option<T> to it's type
+    let x: i8 = 5;
+    let y: Option<i8> = Some(5);
+
+    let sum = x + y.unwrap();
+    println!("The sum is: {}", sum);
 }
 
 fn route(ip_kind: IpAddrKind) {
