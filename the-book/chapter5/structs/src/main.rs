@@ -78,6 +78,5 @@ fn main() {
     // Unit-Like Structs
     struct AlwaysEqual;
 
-    let subject = AlwaysEqual;
-    // println!("Subject: {}", subject);
+    let _subject = AlwaysEqual;
 }
