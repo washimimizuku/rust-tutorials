@@ -12,7 +12,8 @@ fn main() {
     let data = "initial contents";
     let s2 = data.to_string();
     println!("String with initial content: {}", s2);
-
+    
+    // the method also works on a literal directly:
     let s3 = "alternative initial contents".to_string();
     println!("String with initial content: {}", s3);
 
@@ -22,17 +23,27 @@ fn main() {
 
     // Full UTF-8
     let hello = String::from("السلام عليكم");
+    println!("String hello: {}", hello);
     let hello = String::from("Dobrý den");
+    println!("String hello: {}", hello);
     let hello = String::from("Hello");
+    println!("String hello: {}", hello);
     let hello = String::from("שָׁלוֹם");
+    println!("String hello: {}", hello);
     let hello = String::from("नमस्ते");
+    println!("String hello: {}", hello);
     let hello = String::from("こんにちは");
+    println!("String hello: {}", hello);
     let hello = String::from("안녕하세요");
+    println!("String hello: {}", hello);
     let hello = String::from("你好");
+    println!("String hello: {}", hello);
     let hello = String::from("Olá");
+    println!("String hello: {}", hello);
     let hello = String::from("Здравствуйте");
+    println!("String hello: {}", hello);
     let hello = String::from("Hola");
-    println!("{}", hello);
+    println!("String hello: {}", hello);
 
     // Appending to a string
     let mut s = String::from("foo");
