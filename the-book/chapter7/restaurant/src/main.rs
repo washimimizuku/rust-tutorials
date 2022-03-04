@@ -13,29 +13,36 @@ fn main() {
     println!("The random number is: {}", secret_number);
 
     // Nested paths
+    #[allow(unused_imports)]
     use std::{cmp::Ordering, io};
     // Same as:
     // use std::cmp::Ordering;
     // use std::io;
 
+    #[allow(unused_imports)]
     use std::os::{self, raw};
     // Same as:
     // use std::os;
     // use std::os::raw;
 
     // Glob operator
+    #[allow(unused_imports)]
     use std::net::*;
 }
 
 // Bringing two items with the same name into scope
+#[allow(unused_imports)]
 use std::fmt;
+#[allow(unused_imports)]
 use std::io;
 
 // fn function1() -> fmt::Result {}
 // fn function2() -> io::Result {}
 
 // With as
+#[allow(unused_imports)]
 use std::fmt::Result;
+#[allow(unused_imports)]
 use std::io::Result as IoResult;
 
 // fn function1() -> Result {}

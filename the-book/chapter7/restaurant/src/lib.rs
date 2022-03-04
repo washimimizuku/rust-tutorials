@@ -4,23 +4,29 @@ mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
 
+        #[allow(dead_code)]
         fn seat_at_table() {}
     }
 
     mod serving {
+        #[allow(dead_code)]
         fn take_order() {}
 
+        #[allow(dead_code)]
         fn serve_order() {}
 
+        #[allow(dead_code)]
         fn take_payment() {}
     }
 }
 
+#[allow(dead_code)]
 fn serve_order() {}
 
 mod back_of_house {
     pub struct Breakfast {
         pub toast: String,
+        #[allow(dead_code)]
         seasonal_fruit: String,
     }
 
@@ -38,6 +44,7 @@ mod back_of_house {
         Salad,
     }
 
+    #[allow(dead_code)]
     fn fix_incorrect_order() {
         cook_order();
         super::serve_order()
@@ -45,6 +52,7 @@ mod back_of_house {
 
     fn cook_order() {}
 
+    #[allow(dead_code)]
     fn order_supplies() {
         pub use crate::suppliers::ordering;
         ordering::order_products();
@@ -88,8 +96,8 @@ pub fn eat_at_restaurant() {
     // to see or modify the seasonal fruit that comes with the meal
     // meal.seasonal_fruit = String::from("blueberries");
 
+    #[allow(unused_variables)]
     let order1 = back_of_house::Appetizer::Soup;
+    #[allow(unused_variables)]
     let order2 = back_of_house::Appetizer::Salad;
-
-
 }
