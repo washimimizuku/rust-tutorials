@@ -26,18 +26,32 @@ fn main() {
     // let does_not_exist = &v[100];
     // let does_not_exist = v.get(100);
 
+    // Thus will violate the ownership and bprrpwing rules
+    /*
+    let mut v3 = vec![1, 2, 3, 4, 5];
+
+    let first = &v3[0];
+
+    v3.push(6);
+
+    println!("The first element is: {}", first);
+    */
+
     // Iterate over the values in a Vector
     // Immutable
-    for i in &v2 {
+    let v4 = vec![100, 32, 57];
+    println!("Vector v4: {:?}", v4);
+    for i in &v4 {
         println!("{}", i)
     }
 
     // Mutable
-    println!("Vector v before: {:?}", v);
-    for i in &mut v {
+    let mut v5 = vec![100, 32, 57];
+    println!("Vector v5: {:?}", v5);
+    for i in &mut v5 {
         *i += 50;
     }
-    println!("Vector v after: {:?}", v);
+    println!("Vector v5 after modification: {:?}", v5);
 
     // Use enum to store multiple types
     #[derive(Debug)]
