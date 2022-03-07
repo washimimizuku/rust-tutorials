@@ -9,15 +9,6 @@ fn main() {
                               // --+       |
     }                         // ----------+
 
-    // Function with lifetime annotations
-    fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
-        if x.len() > y.len() {
-            x
-        } else {
-            y
-        }
-    }
-
     // This respects lifetimes
     let string1 = String::from("abcd");
     let string2 = "xyz";
@@ -32,8 +23,17 @@ fn main() {
         let result = longest(string1.as_str(), string2.as_str());
         println!("The longest string is {}", result);
     }
+
     // This does not respect lifetimes
+    /*
+    let string1 = String::from("long string is long");
+    let result;
+    {
+        let string2 = String::from("xyz");
+        result = longest(string1.as_str(), string2.as_str());
+    }
     println!("The longest string is {}", result);
+    */
 
     // Lifetimes with structs
     struct ImportantExcerpt<'a> {
@@ -47,7 +47,7 @@ fn main() {
     };
     println!("The important excerpt is: {}", i.part);
 
-    // Lifetime elisionfn
+    // Lifetime elision
     fn first_word(s: &str) -> &str {
         let bytes = s.as_bytes();
 
@@ -110,4 +110,13 @@ fn main() {
 
     let result = longest_with_an_announcement(string1.as_str(), string2.as_str(), "Important!!!");
     println!("The longest string is {}", result);
+}
+
+// Function with lifetime annotations
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
 }
