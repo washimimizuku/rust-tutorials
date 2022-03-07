@@ -39,6 +39,6 @@ impl Summary for Tweet {
 }
 
 // Traits as parameters
-pub fn notify(item: &impl Summary) {
+pub fn notify(item: &impl Summary) { // Same as: pub fn notify<T: Summary>(item: &T) {
     println!("Breaking news! {}", item.summarize())
 }

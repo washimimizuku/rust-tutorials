@@ -1,4 +1,4 @@
-use newspaper::{self, Summary, Tweet, NewsArticle};
+use aggregator::{self, Summary, Tweet, NewsArticle};
 
 fn main() {
     let tweet = Tweet {
@@ -23,4 +23,18 @@ fn main() {
     };
 
     println!("New article available! {}", article.summarize());
+
+    let new_tweet = returns_summarizable();
+    println!("another new tweet: {}", new_tweet.summarize());
+}
+
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    }
 }
