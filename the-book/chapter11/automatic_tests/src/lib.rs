@@ -1,10 +1,13 @@
 #[derive(Debug)]
 struct Rectangle {
+    #[allow(dead_code)]
     width: u32,
+    #[allow(dead_code)]
     height: u32,
 }
 
 impl Rectangle {
+    #[allow(dead_code)]
     fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
     }
@@ -19,6 +22,7 @@ pub fn greeting(name: &str) -> String {
 }
 
 pub struct Guess {
+    #[allow(dead_code)]
     value: i32,
 }
 
@@ -43,6 +47,12 @@ impl Guess {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn it_works() {
+        let result = 2 + 2;
+        assert_eq!(result, 4);
+    }
 
     #[test]
     fn exploration() {
@@ -112,7 +122,7 @@ mod tests {
 
     // Using Result<T, E> in Tests
     #[test]
-    fn it_works() -> Result<(), String> {
+    fn it_works_using_result() -> Result<(), String> {
         if 2 + 2 == 4 {
             Ok(())
         } else {
