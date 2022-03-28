@@ -29,7 +29,6 @@ impl Config {
 
 pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     let contents = fs::read_to_string(config.filename)?;
-    println!("With text:\n{}\n", contents);
 
     let results = if config.case_sensitive {
         search(&config.query, &contents)
@@ -37,7 +36,6 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
         search_case_insensitive(&config.query, &contents)
     };
     
-    println!("Found in lines:");
     for line in results {
         println!("{}", line);
     }
