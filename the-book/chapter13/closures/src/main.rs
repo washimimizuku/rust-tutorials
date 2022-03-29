@@ -1,5 +1,6 @@
 use std::thread;
 use std::time::Duration;
+use std::collections::HashMap;
 
 fn main() {
     let simulated_user_specified_value = 10;
@@ -27,7 +28,7 @@ fn generate_workout(intensity: u32, random_number: u32) {
     let mut expensive_result = Cacher::new(|num| {
         println!("calculating slowly...");
         thread::sleep(Duration::from_secs(2));
-        num
+        *num
     });
 
     if intensity < 25 {
@@ -45,32 +46,32 @@ fn generate_workout(intensity: u32, random_number: u32) {
     }
 }
 
-struct Cacher<T>
-where
-    T: Fn(u32) -> u32,
+struct Cacher<T, P, R>
+    where T: Fn(&P) -> R,
+          P: std::cmp::Eq + std::hash::Hash
 {
     calculation: T,
-    value: Option<u32>,
+    values: HashMap<P, R>,
 }
-
-impl<T> Cacher<T>
-where
-    T: Fn(u32) -> u32,
+ 
+impl<T, P, R> Cacher<T, P, R>
+    where T: Fn(&P) -> R,
+          P: std::cmp::Eq + std::hash::Hash
 {
-    fn new(calculation: T) -> Cacher<T> {
+    fn new(calculation: T) -> Cacher<T, P, R> {
         Cacher {
             calculation,
-            value: None,
+            values: HashMap::new(),
         }
     }
-
-    fn value(&mut self, arg: u32) -> u32 {
-        match self.value {
-            Some(v) => v,
-            None => {
-                let v = (self.calculation)(arg);
-                self.value = Some(v);
-                v
+ 
+    fn value(&mut self, arg: P) -> &R {
+        use std::collections::hash_map::Entry;
+        match self.values.entry(arg) {
+            Entry::Occupied(entry) => entry.into_mut(),
+            Entry::Vacant(entry) => {
+                let v = (self.calculation)(entry.key());
+                entry.insert(v)
             }
         }
     }
