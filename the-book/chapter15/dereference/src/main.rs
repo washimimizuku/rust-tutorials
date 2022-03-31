@@ -21,6 +21,13 @@ fn main() {
 
     assert_eq!(5, x);
     assert_eq!(5, *y);
+
+    // Implicit Deref
+    let m = MyBox::new(String::from("Rust"));
+    hello(&m);
+
+    // If there was no implicit Deref
+    hello(&(*m)[..]);
 }
 
 // Defining our own smart pointer
@@ -38,4 +45,9 @@ impl<T> Deref for MyBox<T> {
     fn deref(&self) -> &Self::Target {
         &self.0
     }
+}
+
+// Implicit Deref
+fn hello(name: &str) {
+    println!("Hello, {}!", name);
 }
