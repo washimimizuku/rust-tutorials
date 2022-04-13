@@ -22,7 +22,7 @@ pub struct Button {
 
 impl Draw for Button {
     fn draw(&self) {
-        // Draw a button
+        println!("Drawing a button");
     }
 }
 
@@ -34,6 +34,6 @@ pub struct SelectBox {
 
 impl Draw for SelectBox {
     fn draw(&self) {
-        // Draw a button
+        println!("Drawing a select box");
     }
 }
