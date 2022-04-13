@@ -1,9 +1,17 @@
+#[derive(Debug)]
 pub struct AverageCollection {
     list: Vec<i32>,
     average: f64,
 }
 
 impl AverageCollection {
+    pub fn new() -> AverageCollection {
+        AverageCollection {
+            list: Vec::new(),
+            average: 0.0
+        }
+    }
+
     pub fn add(&mut self, value: i32) {
         self.list.push(value);
         self.update_average();
@@ -21,7 +29,11 @@ impl AverageCollection {
     }
 
     pub fn average(&self) -> f64 {
-        self.average
+        if self.average.is_nan() {
+            0.0
+        } else {
+            self.average
+        }
     }
 
     fn update_average(&mut self) {
