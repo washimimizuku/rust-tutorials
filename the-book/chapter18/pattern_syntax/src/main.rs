@@ -219,6 +219,23 @@ fn main() {
         4 | 5 | 6 if y => println!("yes"),
         _ => println!("no"),
     }
+
+    // @ Bindings
+    enum Message3 {
+        Hello { id: i32 },
+    }
+
+    let msg = Message3::Hello { id: 5 };
+
+    match msg {
+        Message3::Hello {
+            id: id_variable @ 3..=7,
+        } => println!("Found an id in range: {}", id_variable),
+        Message3::Hello { id: 10..=12 } => {
+            println!("Found an id in another range")
+        }
+        Message3::Hello { id } => println!("Found some other id: {}", id),
+    }
 }
 
 fn foo(_: i32, y: i32) {
