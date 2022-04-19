@@ -1,5 +1,23 @@
 use std::slice;
 
+unsafe trait Foo {
+    // methods go here
+}
+
+unsafe impl Foo for i32 {
+    // method implementations go here
+}
+
+static HELLO_WORLD: &str = "Hello, world!";
+
+static mut COUNTER: u32 = 0;
+
+fn add_to_count(inc: u32) {
+    unsafe {
+        COUNTER += inc;
+    }
+}
+
 fn split_at_mut(values: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
     let len = values.len();
     let ptr = values.as_mut_ptr();
@@ -67,4 +85,14 @@ fn main() {
     unsafe {
         println!("Absolute value of -3 according to C: {}", abs(-3));
     }
+
+    // Accessing or Modifying a Mutable Static Variable
+    println!("name is: {}", HELLO_WORLD);
+
+    add_to_count(3);
+
+    unsafe {
+        println!("COUNTER: {}", COUNTER);
+    }
+       
 }
